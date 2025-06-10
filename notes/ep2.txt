@@ -1,0 +1,3 @@
+we can download two types of dependencies 
+1.) normal dependencies : it can be use in production also
+2.) dev dependencies : required in development phase
