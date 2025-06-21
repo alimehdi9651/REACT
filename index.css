@@ -1,18 +1,20 @@
-
 .header {
     display: flex;
     border: 1px solid black;
     justify-content: space-between;
 }
+
 .logo {
     width: 126px;
     height: 126px;
 }
-.nav-items > ul {
+
+.nav-items>ul {
     display: flex;
     font-size: 22px;
 }
-.nav-items > ul > li {
+
+.nav-items>ul>li {
     list-style-type: none;
     padding: 10px;
     margin: 10px;
@@ -23,8 +25,8 @@
     flex-wrap: wrap;
 }
 
-.res-card  {
-    border:2px solid #555454;
+.res-card {
+    border: 2px solid #555454;
     background-color: #d6d4d4;
     margin: 4px;
     padding: 5px;
@@ -32,19 +34,55 @@
     height: auto;
     border-radius: 5px;
 }
-.res-card:hover{
+
+.res-card:hover {
     border: 1px solid black;
 }
 
-.res-logo{
+.res-logo {
     object-fit: fill;
     border-radius: 5px;
     width: 200px;
     height: 126px;
 }
+
 .search {
     padding: 10px;
 }
-.filter-btn{
+
+.filter-btn {
     cursor: pointer;
+}
+
+.Shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Shimmer-card {
+    border: 2px solid #555454;
+    background-color: #d6d4d4;
+    margin: 4px;
+    padding: 5px;
+    width: 200px;
+    height: 400px;
+    border-radius: 5px;
+
+}
+
+.login {
+    margin: 16px;
+    padding: 7px;
+    border: 2px solid;
+    border-radius: 10px;
+    color: #565353;
+    cursor: pointer;
+}
+
+.filter {
+    display: flex;
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+
 }
