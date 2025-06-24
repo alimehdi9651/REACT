@@ -52,7 +52,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 // const heading = React.createElement("h1", { id: "hwading" }, "i am ali Mehdi");
-const root = ReactDOM.createRoot(document.getElementById("root"));
+
 // // root.render(heading)
 // console.log(root);
 // // note : createElement creates react object(heading), and after rendering heading to root that object convert into HTML
@@ -126,22 +126,43 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 import Body from "./src/components/Body";
 import Header from "./src/components/Header";
-
-
-
-
-
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import About from "./src/components/About";
+import Error from "./src/components/Error";
+import Contact from "./src/components/Contact";
 
 
 const AppLayout = () => {
   return (
     <div className="app">
       <Header />
-      <Body />
+      <Outlet />
     </div>
   );
 };
-root.render(<AppLayout />);
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children : [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+]);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<RouterProvider router={appRouter} />);
 
 // if we want to pass data to the card dynamically , we have to use something known as props(properties)
 // we have pass props to our functional component(just like passing arguments to normal functions)

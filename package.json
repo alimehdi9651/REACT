@@ -4,7 +4,7 @@
   "description": "this is react ",
   "scripts": {
     "start": "parcel index.html",
-    "build" : "parcel build index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
@@ -23,7 +23,8 @@
   },
   "dependencies": {
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^6.22.3"
   },
   "browserslist": [
     "last 2 versions"
