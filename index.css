@@ -14,7 +14,13 @@
     font-size: 22px;
 }
 
+.nav-link{
+    text-decoration: auto;
+    color: black;
+}
 .nav-items>ul>li {
+    text-decoration: auto;
+    color: black;
     list-style-type: none;
     padding: 10px;
     margin: 10px;
@@ -26,14 +32,29 @@
 }
 
 .res-card {
+
+    
+    text-decoration: none;
+    color: black;
     border: 2px solid #555454;
     background-color: #d6d4d4;
     margin: 4px;
     padding: 5px;
     width: 200px;
-    height: auto;
+    height: 416px;
+    display: inline-block;
     border-radius: 5px;
 }
+/* text-decoration: none;
+color: black;
+border: 2px solid #555454;
+background-color: #d6d4d4;
+margin: 4px;
+padding: 5px;
+width: 200px;
+height: auto;
+border-radius: 5px;
+display: inline-block; */
 
 .res-card:hover {
     border: 1px solid black;

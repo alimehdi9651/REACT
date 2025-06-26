@@ -2,6 +2,7 @@ import RestaurantCard from "./RestauantCard";
 
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 const Body = () => {
   //local state variable = supwe powerful variable
   //if you want to modify this listofresaurant then we have to pass the function as well
@@ -22,7 +23,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/search/v3?lat=26.86474977468873&lng=80.90554151684046&str=Restaurants%20near%20me&trackingId=bb6c58f7-2b4b-cd16-7aea-130e24913aee&submitAction=ENTER&queryUniqueId=6f70ce15-9b37-12d1-5d20-896ef790e8d3"
+      "https://www.swiggy.com/dapi/restaurants/search/v3?lat=26.86474977468873&lng=80.90554151684046&str=restaurants&trackingId=d5b10a4e-6595-eced-cdfc-75c280531bf1&submitAction=ENTER&queryUniqueId=be965524-3d16-dfce-2c18-1fc56ac9f638"
     );
     const json = await data.json();
     // console.log(json);
@@ -60,7 +61,9 @@ const Body = () => {
             onClick={() => {
               // filter restaurants and update UI
               const filterRestaurant = listOfRestaurants.filter((res) =>
-                res.card.card.info.name.toLowerCase().includes(searchText.toLowerCase())
+                res.card.card.info.name
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase())
               );
               // console.log(res.card.card.info.name)
 
@@ -86,10 +89,12 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredList.map((restaurant) => (
-          <RestaurantCard
+          <Link
             key={restaurant.card.card.info.id}
-            resData={restaurant}
-          />
+            to={"/restaurant/"+ restaurant.card.card.info.id}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>

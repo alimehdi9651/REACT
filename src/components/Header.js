@@ -6,7 +6,7 @@ const Header = () => {
   console.log("Header render");
   //if no dependency array useEffect is called on every render
   //if dependency array is empty = use effect called on initial render(just once)
-  // / if dependency array is [btnLogin] = useEffect will called every time btnLogin updates
+  //if dependency array is [btnLogin] = useEffect will called every time btnLogin updates
 
   // everytime btnNameReact is updated, then
   useEffect(() => {
@@ -21,15 +21,22 @@ const Header = () => {
       <div className="nav-items">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/about"> About Us</Link>
+            <Link to="/about" className="nav-link">
+              {" "}
+              About Us
+            </Link>
           </li>
           <li>
-            <Link to="/contact">Contact Us</Link>
+            <Link to="/contact" className="nav-link">
+              Contact Us
+            </Link>
           </li>
-          <li>Cart</li>
+          <li className="nav-link">Cart</li>
           <button
             className="login"
             onClick={() => {
