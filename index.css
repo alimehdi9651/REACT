@@ -107,3 +107,12 @@ display: inline-block; */
     align-items: center;
 
 }
+.User-Card{
+    background-color: #555454;
+    width: 26vw;
+    border: 2px solid black;
+    margin-top: 15px;
+}
+.User-Card *{
+    margin-left: 20px;
+}
