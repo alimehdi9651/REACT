@@ -35,8 +35,6 @@ const Body = () => {
       //Optional Channing
       json?.data?.cards[1]?.groupedCard?.cardGroupMap?.RESTAURANT?.cards
     );
-    const d = json.data.cards[1].groupedCard.cardGroupMap.RESTAURANT.cards;
-    console.log(d);
   };
 
   //Conditional Renderig

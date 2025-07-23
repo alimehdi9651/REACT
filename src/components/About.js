@@ -5,10 +5,10 @@ import UserClass from "./UserClass";
 class About extends React.Component{
     constructor(props){
         super(props)
-        console.log("parent Construstor render")
+       
     }
-    componentDidMount(){
-        console.log("parent componentDidMount")
+    async componentDidMount(){
+       
     }
 
     render() {
@@ -16,7 +16,7 @@ class About extends React.Component{
         return (
             <div>
                 <h1>About Us</h1>
-                <UserClass name = {"Ali Mehdi coming from class components"}  location = {"Lucknow coming from Class component"}/>
+                <UserClass name = {"First"}  location = {"Lucknow"}/>
             </div>
         );
 
@@ -32,3 +32,19 @@ class About extends React.Component{
 //     );
 // };
 export default About
+
+
+
+
+
+//if there exist multiple childs then what happen is: react batches render phase of all the childrens and then update the dom
+// and component did mount render 
+// parent Construstor render
+// parent Render
+// FirstConstructor
+// FirstChild render
+// secondConstructor
+// secondChild render
+// FirstComponentDidMount
+// secondComponentDidMount
+// parent componentDidMount

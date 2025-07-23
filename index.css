@@ -116,3 +116,6 @@ display: inline-block; */
 .User-Card *{
     margin-left: 20px;
 }
+.avtar_img{
+    width: 100px;
+}
