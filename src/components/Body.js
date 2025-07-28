@@ -3,6 +3,8 @@ import RestaurantCard from "./RestauantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+
+import useOnlineStatus from "../utils/OnlineStatus";
 const Body = () => {
   //local state variable = supwe powerful variable
   //if you want to modify this listofresaurant then we have to pass the function as well
@@ -11,7 +13,7 @@ const Body = () => {
   const [filteredList, setFilteredList] = useState([]);
   //defination:************** whenever state variable updates react triggers a reconciliation cycle or rerender the component again****************
   //normal js variable
-  console.log("body render");
+  // console.log("body render");
   const [searchText, setSearchText] = useState("");
 
   //useEffect(): Another State variable that will run after the whole body render
@@ -36,6 +38,9 @@ const Body = () => {
       json?.data?.cards[1]?.groupedCard?.cardGroupMap?.RESTAURANT?.cards
     );
   };
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false)
+    return <h1>you are offline! please check your connection</h1>;
 
   //Conditional Renderig
   // if (listOfRestaurants.length == 0) {
@@ -89,7 +94,7 @@ const Body = () => {
         {filteredList.map((restaurant) => (
           <Link
             key={restaurant.card.card.info.id}
-            to={"/restaurant/"+ restaurant.card.card.info.id}
+            to={"/restaurant/" + restaurant.card.card.info.id}
           >
             <RestaurantCard resData={restaurant} />
           </Link>

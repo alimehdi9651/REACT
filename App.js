@@ -131,6 +131,17 @@ import About from "./src/components/About";
 import Error from "./src/components/Error";
 import Contact from "./src/components/Contact";
 import RestaurantMenu from "./src/components/RestaurantMenu";
+// import Grocery from "./src/components/grocery";
+import { lazy, Suspense } from "react";
+
+
+// chuking
+// lazy loading
+// code splitting
+// dynamic import
+// on demand loading
+
+const Grocery = lazy(() => import("./src/components/grocery"))
 
 
 const AppLayout = () => {
@@ -145,7 +156,7 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-    children : [
+    children: [
       {
         path: "/",
         element: <Body />,
@@ -157,6 +168,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/grocery",
+        element: <Suspense fallback={<h1>Loading....</h1>} ><Grocery /></Suspense>
       },
       {
         path: "/restaurant/:resId",
