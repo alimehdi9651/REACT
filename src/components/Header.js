@@ -15,37 +15,37 @@ const Header = () => {
   }, [btnLogin]);
 
   return (
-    <div className="header">
-      <div className="logo-container">
+    <div className="flex justify-between items-center">
+      <div className="logo-container w-46">
         <img className="logo" src={LOGO_URL} />
       </div>
       <div className="nav-items">
-        <ul>
-          <li>
+        <ul className="flex p-4 m-4 text-xl justify-around">
+          <li className="mr-4">
             Online Status {onlineStatus? '🟢':'🔴'}
           </li>
-          <li>
+          <li className="mr-4">
             <Link to="/" className="nav-link">
               Home
             </Link>
           </li>
-          <li>
+          <li className="mr-4">
             <Link to="/about" className="nav-link">
               {" "}
               About Us
             </Link>
           </li>
-          <li>
+          <li className="mr-4">
             <Link to="/contact" className="nav-link">
               Contact Us
             </Link>
           </li>
-          <li>
+          <li className="mr-4">
             <Link to="/grocery" className="nav-link">
               Grocery
             </Link>
           </li>
-          <li className="nav-link">Cart</li>
+          <li className="nav-link mr-4">Cart</li>
           <button
             className="login"
             onClick={() => {

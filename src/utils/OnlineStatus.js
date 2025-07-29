@@ -9,6 +9,6 @@ const useOnlineStatus = () => {
       setOnlinestatues(true);
     });
   }, []);
-  return onlineStatus;
+  return onlineStatus;  
 };
 export default useOnlineStatus;
