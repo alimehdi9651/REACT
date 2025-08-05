@@ -49,7 +49,7 @@
 // root.render(parent);
 
 // ========================================================================================================================================
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 // const heading = React.createElement("h1", { id: "hwading" }, "i am ali Mehdi");
 
@@ -133,23 +133,31 @@ import Contact from "./src/components/Contact";
 import RestaurantMenu from "./src/components/RestaurantMenu";
 // import Grocery from "./src/components/grocery";
 import { lazy, Suspense } from "react";
-
+import UserContext from "./src/utils/UserContext";
 
 // chuking
 // lazy loading
 // code splitting
 // dynamic import
 // on demand loading
-
-const Grocery = lazy(() => import("./src/components/grocery"))
-
+const Grocery = lazy(() => import("./src/components/grocery"));
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    const data = {
+      name: "Ali Mehdi",
+    };
+    setUserName(data.name);
+  }, []);
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 const appRouter = createBrowserRouter([
@@ -171,7 +179,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/grocery",
-        element: <Suspense fallback={<h1>Loading....</h1>} ><Grocery /></Suspense>
+        element: (
+          <Suspense fallback={<h1>Loading....</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
       },
       {
         path: "/restaurant/:resId",

@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import { LOGO_URL } from "../utils/constants";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import useOnlineStatus from "../utils/OnlineStatus";
+import UserContext from "../utils/UserContext";
 const Header = () => {
   const [btnLogin, setBtnLogin] = useState("Login");
-  console.log("Header render");
+  // console.log("Header render");
+  const {loggedInUser} = useContext(UserContext)
+  
+
   //if no dependency array useEffect is called on every render
   //if dependency array is empty = use effect called on initial render(just once)
   //if dependency array is [btnLogin] = useEffect will called every time btnLogin updates
@@ -15,7 +19,7 @@ const Header = () => {
   }, [btnLogin]);
 
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center bg-pink-100">
       <div className="logo-container w-46">
         <img className="logo" src={LOGO_URL} />
       </div>
@@ -44,8 +48,9 @@ const Header = () => {
             <Link to="/grocery" className="nav-link">
               Grocery
             </Link>
-          </li>
+          </li> 
           <li className="nav-link mr-4">Cart</li>
+          <li className="nav-link mr-4 font-bold">{loggedInUser}</li>
           <button
             className="login"
             onClick={() => {

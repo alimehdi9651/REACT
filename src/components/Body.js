@@ -1,8 +1,10 @@
-import RestaurantCard from "./RestauantCard";
+import RestaurantCard, { withPromotedLable } from "./RestauantCard";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
+
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 import useOnlineStatus from "../utils/OnlineStatus";
 const Body = () => {
@@ -16,6 +18,8 @@ const Body = () => {
   // console.log("body render");
   const [searchText, setSearchText] = useState("");
 
+  const RestaurantCardPrmoted = withPromotedLable(RestaurantCard);
+
   //useEffect(): Another State variable that will run after the whole body render
   //it will take two argument one is the array and second is the array
   useEffect(() => {
@@ -28,7 +32,6 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/search/v3?lat=26.86474977468873&lng=80.90554151684046&str=restaurants&trackingId=d5b10a4e-6595-eced-cdfc-75c280531bf1&submitAction=ENTER&queryUniqueId=be965524-3d16-dfce-2c18-1fc56ac9f638"
     );
     const json = await data.json();
-    // console.log(json);
     setListOfRestaurant(
       //Optional Channing
       json?.data?.cards[1]?.groupedCard?.cardGroupMap?.RESTAURANT?.cards
@@ -38,6 +41,7 @@ const Body = () => {
       json?.data?.cards[1]?.groupedCard?.cardGroupMap?.RESTAURANT?.cards
     );
   };
+  const { loggedInUser, setUserName } = useContext(UserContext);
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false)
     return <h1>you are offline! please check your connection</h1>;
@@ -52,7 +56,7 @@ const Body = () => {
     <div className="body">
       <div className="flex justify-center">
         <div className="search">
-          <input  
+          <input
             type="text"
             className="search-box border-2 rounded-md mr-2"
             value={searchText}
@@ -60,7 +64,8 @@ const Body = () => {
               setSearchText(e.target.value);
             }}
           />
-          <button className="bg-blue-100 rounded px-3 py-1"
+          <button
+            className="bg-blue-100 rounded px-3 py-1"
             onClick={() => {
               // filter restaurants and update UI
               const filterRestaurant = listOfRestaurants.filter((res) =>
@@ -89,6 +94,14 @@ const Body = () => {
         >
           Top rated Restaurant
         </button>
+
+        <label htmlFor="">UserName : </label>
+        <input
+          className="border rounded border-black"
+          type="text"
+          value={loggedInUser}
+          onChange={(e) => setUserName(e.target.value)}
+        />
       </div>
       <div className="flex flex-wrap justify-center">
         {filteredList.map((restaurant) => (
@@ -96,7 +109,11 @@ const Body = () => {
             key={restaurant.card.card.info.id}
             to={"/restaurant/" + restaurant.card.card.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {restaurant.card.card.info.promoted ? (
+              <RestaurantCardPrmoted resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
