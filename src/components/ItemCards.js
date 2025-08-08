@@ -1,6 +1,11 @@
+import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 const ItemCards = ({ items }) => {
-  
+  const dispatch = useDispatch();
+  const handleAddItems = (item) => {
+    dispatch(addItem(item))
+  };
   return (
     <div className="hi">
       {items.map((item) => (
@@ -19,8 +24,22 @@ const ItemCards = ({ items }) => {
             <p className="text-sm">{item.card.info.description}</p>
           </div>
           <div className="">
-            <img className="relative w-[100px] h-[100px]" src={item.card.info.imageId ? CDN_URL + item.card.info.imageId : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRneVAQXO1dWUf1W8JZbjkNUSX-4LYH6650IfTENKHi2yBoOnyvo_McGrZxGMciOvZYSyA"} alt="" />
-            <button className=" text-sm px-3 py-0.5 rounded-md bg-gray-400">Add+</button>
+            <img
+              className="relative w-[100px] h-[100px]"
+              src={
+                item.card.info.imageId
+                  ? CDN_URL + item.card.info.imageId
+                  : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRneVAQXO1dWUf1W8JZbjkNUSX-4LYH6650IfTENKHi2yBoOnyvo_McGrZxGMciOvZYSyA"
+              }
+              alt=""
+            />
+            <button className=" text-sm px-3 py-0.5 rounded-md bg-gray-400 cursor-pointer hover:bg-gray-500"
+            // onClick={handleAddItems}
+            onClick={() => handleAddItems(item)}
+            
+            >
+              Add+
+            </button>
           </div>
         </div>
       ))}
@@ -29,26 +48,4 @@ const ItemCards = ({ items }) => {
 };
 export default ItemCards;
 
-// <div>
-// {items.map((item) => {
-//   <div key={item.card.info.id}>
-//     <div>
-//       <span>{item.card.info.name}</span>
-//       <span>{item.card.info.price / 100}</span>
-//     </div>
-//     <p>{item.card.info.discription}</p>
-//   </div>;
-// })}
-// </div>
-// );
-// };
 
-// {items.map((item) => {
-//     <div key={item.card.info.id}>
-//       <div>
-//         <span>{item.card.info.name}</span>
-//         <span>{item.card.info.price / 100}</span>
-//       </div>
-//       <p>{item.card.info.discription}</p>
-//     </div>;
-//   })}

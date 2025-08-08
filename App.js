@@ -134,6 +134,9 @@ import RestaurantMenu from "./src/components/RestaurantMenu";
 // import Grocery from "./src/components/grocery";
 import { lazy, Suspense } from "react";
 import UserContext from "./src/utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./src/utils/appStore";
+import Cart from "./src/components/Cart";
 
 // chuking
 // lazy loading
@@ -152,12 +155,14 @@ const AppLayout = () => {
     setUserName(data.name);
   }, []);
   return (
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      <div className="app">
-        <Header />
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 const appRouter = createBrowserRouter([
@@ -176,6 +181,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/grocery",
