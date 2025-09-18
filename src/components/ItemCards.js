@@ -4,12 +4,13 @@ import { addItem } from "../utils/cartSlice";
 const ItemCards = ({ items }) => {
   const dispatch = useDispatch();
   const handleAddItems = (item) => {
-    dispatch(addItem(item))
+    dispatch(addItem(item));
   };
   return (
     <div className="hi">
       {items.map((item) => (
         <div
+          data-testid="foodItem"
           className="border-b-1 p-2 m-2 border-gray-300 text-left flex justify-between"
           key={item.card.info.id}
         >
@@ -33,10 +34,10 @@ const ItemCards = ({ items }) => {
               }
               alt=""
             />
-            <button className=" text-sm px-3 py-0.5 rounded-md bg-gray-400 cursor-pointer hover:bg-gray-500"
-            // onClick={handleAddItems}
-            onClick={() => handleAddItems(item)}
-            
+            <button
+              className=" text-sm px-3 py-0.5 rounded-md bg-gray-400 cursor-pointer hover:bg-gray-500"
+              // onClick={handleAddItems}
+              onClick={() => handleAddItems(item)}
             >
               Add+
             </button>
@@ -47,5 +48,3 @@ const ItemCards = ({ items }) => {
   );
 };
 export default ItemCards;
-
-

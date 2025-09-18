@@ -1,0 +1,103 @@
+{
+    "card": {
+        "card": {
+            "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+            "info": {
+                "id": "479953",
+                "name": "Mansarovar Restaurant",
+                "city": "15",
+                "slugs": {
+                    "restaurant": "chinese-point-aliganj-aliganj-2",
+                    "city": "lucknow"
+                },
+                "cloudinaryImageId": "c75cc976bf2ba8365b8942a6b5d426d7",
+                "address": "Zs apartments, Sector G Main Road, Sector L, Aliganj, Lucknow, Uttar Pradesh, India",
+                "locality": "Sector G",
+                "areaName": "Aliganj",
+                "costForTwo": "20000",
+                "costForTwoMessage": "₹200 FOR TWO",
+                "cuisines": [
+                    "Chinese",
+                    "Snacks",
+                    "Fast Food",
+                    "Indian",
+                    "Punjabi",
+                    "Continental",
+                    "Lucknowi"
+                ],
+                "avgRating": 3.5,
+                "feeDetails": {},
+                "parentId": "431429",
+                "avgRatingString": "3.5",
+                "totalRatingsString": "897",
+                "promoted": true,
+                "adTrackingId": "cid=fd320bdd-12da-40e9-b2bc-b898100f163a~p=0~adgrpid=fd320bdd-12da-40e9-b2bc-b898100f163a#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=479953~plpr=SEARCH#RESTAURANT~st=restaurants~eid=49c677be-0580-4d29-97f2-6d369842d81a~srvts=1756980130266",
+                "sla": {
+                    "deliveryTime": 51,
+                    "minDeliveryTime": 50,
+                    "maxDeliveryTime": 55,
+                    "lastMileTravel": 7.5,
+                    "serviceability": "SERVICEABLE",
+                    "rainMode": "RAIN_MODE_NONE",
+                    "slaString": "50-55 MINS",
+                    "lastMileTravelString": "7.5 km",
+                    "iconType": "ICON_TYPE_EMPTY"
+                },
+                "availability": {
+                    "opened": true,
+                    "restaurantClosedMeta": {}
+                },
+                "badges": {},
+                "aggregatedDiscountInfoV3": {
+                    "header": "ITEMS",
+                    "subHeader": "AT ₹79",
+                    "logoCtx": {
+                        "text": "BENEFITS"
+                    }
+                },
+                "ratingSlab": "RATING_SLAB_4",
+                "orderabilityCommunication": {
+                    "title": {},
+                    "subTitle": {},
+                    "message": {},
+                    "customIcon": {},
+                    "commsStyling": {}
+                },
+                "cartOrderabilityNudgeBanner": {
+                    "parameters": {},
+                    "presentation": {}
+                },
+                "externalRatings": {
+                    "aggregatedRating": {
+                        "rating": "--"
+                    }
+                },
+                "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+                "featuredSectionInfo": {
+                    "sectionTitle": "More"
+                },
+                "campaignId": "fd320bdd-12da-40e9-b2bc-b898100f163a"
+            },
+            "analytics": {
+                "screenName": "explore",
+                "context": "{\"tid\":\"d5b10a4e-6595-eced-cdfc-75c280531bf1\",\"grid\":\"6aa42406-cbcc-4ce6-ad97-62ca775cc581\",\"queryUniqueId\":\"be965524-3d16-dfce-2c18-1fc56ac9f638\",\"query\":\"restaurants\",\"adTrackingId\":\"cid=fd320bdd-12da-40e9-b2bc-b898100f163a~p=0~adgrpid=fd320bdd-12da-40e9-b2bc-b898100f163a#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=479953~plpr=SEARCH#RESTAURANT~st=restaurants~eid=49c677be-0580-4d29-97f2-6d369842d81a~srvts=1756980130266\"}",
+                "objectValue": "479953",
+                "impressionObjectName": "impression-restaurant-ad",
+                "clickObjectName": "click-restaurant-ad"
+            },
+            "ctaWithParams": {
+                "link": "swiggy://menu",
+                "type": "DEEPLINK",
+                "params": {
+                    "qrEnabled": "false",
+                    "restaurant_id": "479953",
+                    "query": "restaurants",
+                    "sourceSessionId": "mof80bdb-aa7a-470e-8706-280161239713",
+                    "source": "SEARCH",
+                    "isSld": "false",
+                    "sourceRequestId": "68b963a114448f0dba317185729ffcfb"
+                }
+            }
+        }
+    }
+}

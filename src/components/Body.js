@@ -1,7 +1,7 @@
 import RestaurantCard, { withPromotedLable } from "./RestauantCard";
 
 import { useState, useEffect, useContext } from "react";
-import Shimmer from "./Shimmer";
+import Shimmer from "./Shimmer"; 
 
 import { Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
@@ -17,6 +17,7 @@ const Body = () => {
   //normal js variable
   // console.log("body render");
   const [searchText, setSearchText] = useState("");
+  // console.log(searchText)
 
   const RestaurantCardPrmoted = withPromotedLable(RestaurantCard);
 
@@ -58,6 +59,7 @@ const Body = () => {
         <div className="search">
           <input
             type="text"
+            data-testid = "searchInput"
             className="search-box border-2 rounded-md mr-2"
             value={searchText}
             onChange={(e) => {
@@ -97,7 +99,7 @@ const Body = () => {
 
         <label htmlFor="">UserName : </label>
         <input
-          className="border rounded border-black"
+          className="border rounded px-2 border-2"
           type="text"
           value={loggedInUser}
           onChange={(e) => setUserName(e.target.value)}

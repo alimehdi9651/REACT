@@ -15,12 +15,12 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
   // everytime btnNameReact is updated, then
   useEffect(() => {
-    console.log("useState Render");
+    // console.log("useState Render");
   }, [btnLogin]);
 
   //Selector: a react hook that is responsible for subscribing the store
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+  // console.log(cartItems);
 
   return (
     <div className="flex justify-between items-center bg-pink-100 shadow-lg">
